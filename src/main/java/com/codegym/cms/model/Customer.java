@@ -9,6 +9,9 @@ public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "province_id")
+    private Province province;
     private String firstName;
     private String lastName;
 
@@ -46,5 +49,13 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 }
